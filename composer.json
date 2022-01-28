@@ -1,0 +1,22 @@
+{
+    "name": "laravelevetools/eve-seeder",
+    "version": "1.0",
+    "description": "Seed EVE database ",
+    "autoload": {
+        "psr-4": {
+            "LaravelEveTools\\EveSeeder\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "laravel/framework": "^8.0",
+        "maatwebsite/excel": "^3.0"
+    },
+    "extra": {
+    "laravel": {
+      "providers": [
+        "LaravelEveTools\\EveSeeder\\EveSeederServiceProvider"
+      ]
+    }
+  }
+}
