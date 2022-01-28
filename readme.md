@@ -4,6 +4,8 @@ This package is based of Eve SeAT's new seeder classes which can be found here:
 
 https://github.com/eveseat/eveapi/tree/5.0.x/src/database/seeders
 
+All credits to these seeders go to warlof: https://github.com/warlof
+
 Current Seeders Available are:
 
 - StaStations
