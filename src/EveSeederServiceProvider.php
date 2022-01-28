@@ -22,7 +22,7 @@ class EveSeederServiceProvider extends ServiceProvider
     public function boot(){
         $this->publishes([
             __DIR__ . '/Config/eve-sde.php' => config_path('eve-sde.php')
-        ], ['config','sde']);
+        ], ['config','sde-config']);
     }
 
 }
