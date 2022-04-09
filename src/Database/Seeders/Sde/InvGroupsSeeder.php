@@ -6,6 +6,7 @@ namespace LaravelEveTools\EveSeeder\Database\Seeders\Sde;
 
 use Illuminate\Database\Schema\Blueprint;
 use LaravelEveTools\EveSeeder\Mappings\Sde\AbstractSdeMapping;
+use LaravelEveTools\EveSeeder\Mappings\Sde\InvGroupMapping;
 
 class InvGroupsSeeder extends AbstractSdeSeeder
 {
@@ -25,6 +26,6 @@ class InvGroupsSeeder extends AbstractSdeSeeder
 
     protected function getMappingClass(): AbstractSdeMapping
     {
-        // TODO: Implement getMappingClass() method.
+        return new InvGroupMapping();
     }
 }

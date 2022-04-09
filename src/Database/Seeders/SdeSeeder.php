@@ -67,8 +67,11 @@ class SdeSeeder extends Seeder
             $file_handler = fopen($destination, 'w');
 
             $result = Http::withOptions([
-                'sink' => $file_handler
+                'sink' => $file_handler,
+                'timeout' => 0
             ])->get($url);
+
+            Http::
 
             fclose($file_handler);
 

@@ -12,4 +12,24 @@ class InvCategory extends AbstractSdeModel
 {
     use IsReadOnly;
 
+
+    /**
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
+     * @var string
+     */
+    protected $table = 'invCategory';
+
+    /**
+     * @var string
+     */
+    protected $primaryKey = 'categoryID';
+
+    /**
+     * @var bool
+     */
+    public $timestamps = false;
 }

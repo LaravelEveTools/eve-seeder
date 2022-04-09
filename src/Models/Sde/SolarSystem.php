@@ -2,8 +2,6 @@
 
 
 namespace LaravelEveTools\EveSeeder\Models\Sde;
-
-
 class SolarSystem extends AbstractSdeModel
 {
 
@@ -30,18 +28,6 @@ class SolarSystem extends AbstractSdeModel
     public function planets()
     {
         return $this->hasMany(Planet::class, 'system_id', 'system_id');
-    }
-
-    public function connectedSystems()
-    {
-        return $this->hasManyThrough(
-            SolarSystem::class,
-            MapSolarSystemJump::class,
-            'toSystemID',
-            'system_id',
-            'system_id',
-            'fromSystemId'
-        );
     }
 
 

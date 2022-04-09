@@ -25,7 +25,8 @@ class StaStationsSeeder extends AbstractSdeSeeder
         $table->integer('operationID');
         $table->integer('stationTypeID');
         $table->bigInteger('corporationID');
-        $table->integer('constellationId');
+        $table->integer('solarSystemID');
+        $table->integer('constellationID');
         $table->integer('regionID');
         $table->string('stationName', 100);
         $table->double('x');

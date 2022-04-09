@@ -139,14 +139,17 @@ class MapDenormalizeSeeder extends AbstractSdeSeeder
             $table->bigInteger('region_id')->unsigned();
             $table->string('name');
             $table->double('security');
+            $table->double('x');
+            $table->double('y');
+            $table->double('z');
         });
 
         DB::table('solar_systems')->truncate();
         DB::table('solar_systems')
             ->insertUsing([
-                'system_id', 'constellation_id', 'region_id', 'name', 'security',
+                'system_id', 'constellation_id', 'region_id', 'name', 'security', 'x', 'y', 'z'
             ], DB::table((new MapDenormalize())->getTable())->where('groupID', MapDenormalize::SYSTEM)
-                ->select('itemID', 'constellationID', 'regionID', 'itemName', 'security'));
+                ->select('itemID', 'constellationID', 'regionID', 'itemName', 'security',  'x', 'y', 'z'));
     }
 
     /**
