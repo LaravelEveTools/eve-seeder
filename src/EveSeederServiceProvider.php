@@ -23,6 +23,8 @@ class EveSeederServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/Config/eve-sde.php' => config_path('eve-sde.php')
         ], ['config','sde-config']);
+
+        $this->loadMigrationsFrom(__DIR__ . '/Database/migrations');
     }
 
 }

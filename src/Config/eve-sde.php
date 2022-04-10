@@ -5,7 +5,7 @@ return [
 
 
     //Version of EVE Sde
-    'version' => 'latest',
+    'version' => env('sde_version', 'latest'),
 
     //Seeder Classes for SDE
     'seeders' => [

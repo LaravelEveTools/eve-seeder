@@ -11,6 +11,7 @@ use LaravelEveTools\EveSeeder\Database\Seeders\Sde\AbstractSdeSeeder;
 use LaravelEveTools\EveSeeder\Exceptions\DirectoryNotAccessibleException;
 use LaravelEveTools\EveSeeder\Exceptions\InvalidSdeConfiguration;
 use LaravelEveTools\EveSeeder\Exceptions\InvalidSdeSeederException;
+use LaravelEveTools\EveSeeder\Models\SdeSettings;
 
 class SdeSeeder extends Seeder
 {
@@ -50,6 +51,11 @@ class SdeSeeder extends Seeder
 
         $this->command->info('Seeding SDE into Database...');
         $this->call($sde_seeders);
+
+        SdeSettings::create([
+            'sde' => $sde_seeders,
+            'version' => config('eve-sde.version')
+        ]);
     }
 
     private function downloadSdeFiles(array $sde_seeders){
