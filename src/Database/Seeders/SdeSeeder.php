@@ -38,7 +38,7 @@ class SdeSeeder extends Seeder
      */
     public function run()
     {
-        set_time_limit(600);
+        set_time_limit(0);
         $sde_seeders = config('eve-sde.seeders', []);
 
         if(!is_array($sde_seeders))
