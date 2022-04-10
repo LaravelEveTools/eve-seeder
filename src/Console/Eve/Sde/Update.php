@@ -12,7 +12,7 @@ class Update extends Command
 {
 
     protected $signature = 'eve:sde:update 
-                            {--force: Force update of SDE}';
+                            {--force : Force update of SDE}';
 
     protected $description = 'Update database with Configured SDE Seeders';
 
