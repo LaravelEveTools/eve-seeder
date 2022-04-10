@@ -61,6 +61,7 @@ class Update extends Command
         if(!$this->Option('force') && !$this->CheckForUpdate()){
             $this->warn('No reason to update SDE');
             $this->warn('Use --force option if you want to force an update');
+            return;
         }
 
         $seederClasses = collect($sde_seeders)->map(function($seeder){
