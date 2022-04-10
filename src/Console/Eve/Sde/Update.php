@@ -36,7 +36,7 @@ class Update extends Command
             return true;
         }
 
-        if(count(array_diff($sde_seeders, $version->sde)) != 0){
+        if(count(array_diff($sde_seeders, $setting->sde)) != 0){
             $this->warn('(CheckForUpdate) - SDE Change: A change has been detected in the required SDE\'s. Installing SDE');
             return true;
         }
