@@ -6,7 +6,7 @@ namespace LaravelEveTools\EveSeeder\Models\Sde;
 class MapSolarSystemJump extends AbstractSdeModel
 {
 
-    protected $table = 'mapsolarsystemjumps';
+    protected $table = 'mapSolarSystemJumps';
 
     protected $visible = [
         'fromSolarSystemID',
