@@ -78,8 +78,6 @@ class SdeSeeder extends Seeder
                 'timeout' => 0
             ])->get($url);
 
-            Http::
-
             fclose($file_handler);
 
             if($result->status() == 200){
