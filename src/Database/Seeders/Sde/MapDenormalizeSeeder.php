@@ -132,6 +132,8 @@ class MapDenormalizeSeeder extends AbstractSdeSeeder
      */
     private function seedSolarSystemsTable()
     {
+        $ice_csv = __DIR__ . '/../../../Storage/systems_ice.csv';
+
         Schema::dropIfExists('solar_systems');
         Schema::create('solar_systems', function (Blueprint $table) {
             $table->bigInteger('system_id')->primary();
@@ -139,17 +141,37 @@ class MapDenormalizeSeeder extends AbstractSdeSeeder
             $table->bigInteger('region_id')->unsigned();
             $table->string('name');
             $table->double('security');
+            $table->boolean('ice')->default(false);
             $table->double('x');
             $table->double('y');
             $table->double('z');
         });
+
+
 
         DB::table('solar_systems')->truncate();
         DB::table('solar_systems')
             ->insertUsing([
                 'system_id', 'constellation_id', 'region_id', 'name', 'security', 'x', 'y', 'z'
             ], DB::table((new MapDenormalize())->getTable())->where('groupID', MapDenormalize::SYSTEM)
-                ->select('itemID', 'constellationID', 'regionID', 'itemName', 'security',  'x', 'y', 'z'));
+                ->select('itemID', 'constellationID', 'regionID', 'itemName', 'security', 'x', 'y', 'z'));
+
+        $systems = [];
+
+        $handle = fopen($ice_csv, 'r');
+        $row=0;
+        while(($line = fgetcsv($handle))!== FALSE){
+            $row++;
+            if($row === 1) continue;
+            $systems[] = $line[0];
+        }
+        fclose($handle);
+
+        if (count($systems) > 0) {
+            DB::table('solar_systems')
+                ->whereIn('system_id', $systems)
+                ->update(['ice' => true]);
+        }
     }
 
     /**
