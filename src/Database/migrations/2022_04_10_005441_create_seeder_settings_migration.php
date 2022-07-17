@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('sde_settings', function (Blueprint $table) {
             $table->id();
             $table->string('version');
-            $table->string('sde');
+            $table->mediumText('sde');
             $table->timestamps();
         });
     }
